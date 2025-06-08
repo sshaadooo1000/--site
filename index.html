@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>درد و دل ساده</title>
+<style>
+body {
+  background-color: #ffe6f0; /* صورتی ملایم */
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='29' viewBox='0 0 32 29'%3E%3Ctext y='24' font-size='24'%3E%F0%9F%92%96%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+  font-family: Tahoma, sans-serif;
+  color: #000;
+  text-align: center;
+  padding: 40px;
+}
+
+
+ 
+  table {
+    margin: 30px auto;
+    border: 3px solid #007bff; /* آبی */
+    background-color: #fef8e7; /* کرم مایل به سفید */
+    border-radius: 10px;
+    width: 95%;
+    max-width: 600px;
+    padding: 30px;
+  }
+  td {
+    padding: 20px;
+    font-size: 1.7rem;
+  }
+  textarea {
+    width: 95%;
+    height: 160px;
+    font-size: 1.5rem;
+    padding: 15px;
+    border: 3px solid #007bff;
+    border-radius: 8px;
+    resize: none;
+  }
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  #finalMessage {
+    font-size: 2.2rem;
+    margin-top: 50px;
+    color: #007bff;
+  }
+</style>
+</head>
+<body>
+
+<table id="welcomeTable">
+  <tr><td>خوش اومدی عمه خراب</td></tr>
+  <tr><td><button id="confirmBtn">تایید</button></td></tr>
+</table>
+
+<table id="inputTable" style="display:none;">
+  <tr><td>درد و دل کن</td></tr>
+  <tr><td><textarea id="userText" placeholder="اینجا بنویس..."></textarea></td></tr>
+  <tr><td><button id="sendBtn">تایید</button></td></tr>
+</table>
+
+<table id="finalTable" style="display:none;">
+  <tr><td id="finalMessage">بکیرم ❤️</td></tr>
+  <tr><td><button id="backBtn">برگشت</button></td></tr>
+</table>
+
+<script>
+  const confirmBtn = document.getElementById('confirmBtn');
+  const sendBtn = document.getElementById('sendBtn');
+  const backBtn = document.getElementById('backBtn');
+  const welcomeTable = document.getElementById('welcomeTable');
+  const inputTable = document.getElementById('inputTable');
+  const finalTable = document.getElementById('finalTable');
+  const userText = document.getElementById('userText');
+
+  confirmBtn.addEventListener('click', () => {
+    welcomeTable.style.display = 'none';
+    inputTable.style.display = 'table';
+  });
+
+  sendBtn.addEventListener('click', () => {
+    if (userText.value.trim() === '') {
+      alert('لطفاً چیزی بنویسید');
+      return;
+    }
+    inputTable.style.display = 'none';
+    finalTable.style.display = 'table';
+  });
+
+  backBtn.addEventListener('click', () => {
+    finalTable.style.display = 'none';
+    userText.value = '';
+    welcomeTable.style.display = 'table';
+  });
+</script>
+
+</body>
+</html>
